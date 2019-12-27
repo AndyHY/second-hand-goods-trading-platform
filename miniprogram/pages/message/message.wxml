@@ -1,0 +1,17 @@
+<scroll-view upper-threshold="100" sroll-into-view="{{toView}}" scroll-top="{{scrollTop}}"scroll-y="true"focus="{{mode}}"enable-back-top="true"style="height: {{scroll_height}}px;" class="message-list">
+	<!-- 每一行 -->
+	<view class="row" wx:for="{{chatRecord}}" wx:key="_id" >
+		<!-- 头像与昵称 -->
+		<view class="body" style="row" bindtap="toChat" data-hisopenid="{{item.myopenid}}">
+			<view class="avatar-container">
+				<image class="avatar" src="{{item.myIcon}}" />
+			</view>
+			<view class="content">
+				<view>{{item.myNickName}}</view>
+			</view>
+      <view bindtap="deleteRecord">
+        <image class="delete" src = "../../images/del.png" catchtap='deleteRecord' data-index="{{index}}"/>
+      </view>
+		</view>
+	</view>
+</scroll-view>

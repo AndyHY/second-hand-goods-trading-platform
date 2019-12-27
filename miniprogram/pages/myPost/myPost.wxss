@@ -1,0 +1,124 @@
+/* 标题 */
+page {
+  height:100%;
+  width:100%;
+}
+/*没有收藏时的占位*/
+.blank {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #edebe8;
+  height:100%;
+}
+/* 帖子的整体框架 */
+.item {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  border-bottom: 1rpx solid #D3D3D3;
+}
+/* 楼主信息和额外信息  */
+.userInformationAndExtraInformation {
+  display: flex;
+  height: 100rpx;
+  margin-bottom: 20rpx;
+  margin-top: 20rpx;
+}
+/* 用户信息 */
+.userInformation {
+  display: flex;
+  
+}
+/* 额外信息 */
+.extraInformation {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+}
+/* 楼主昵称和置顶 */
+.nickNameAndDelete {
+  display: flex;
+  justify-content: space-between;
+}
+.time {
+  font-size: 30rpx;
+  font-weight: 300;
+  margin-top: 10rpx;
+}
+/* 用户头像 */
+.headPortrait {
+  border-radius: 50%;
+  overflow:hidden;
+  width: 100rpx;
+  height: 100rpx;
+  margin-right: 20rpx;
+}
+/* 帖子标题 */
+.postTitle {
+  margin-bottom: 20rpx;
+  font-size: 40rpx;
+  font-weight: 600;
+}
+/* 帖子内容 */
+.postContent {
+  margin-bottom: 20rpx;
+  font-size: 35rpx;
+  font-weight: 300;
+  width: 710rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+/* 帖子图片框架 */
+.postImage {
+display: flex;
+flex-direction: row;
+margin-bottom: 20rpx;
+}
+/* 帖子图片只有一张 */
+.image_1 {
+border-radius: 10rpx;
+overflow: hidden;
+flex-grow: 1;
+height: 400rpx;
+margin-right: 10rpx;
+}
+
+.image_1:last-child {
+margin-right: 0;
+}
+/* 帖子图片只有两张 */
+.image_2 {
+overflow: hidden;
+flex-grow: 1;
+height: 350rpx;
+margin-right: 10rpx;
+}
+.image_2:first-child {
+border-bottom-left-radius: 10rpx;
+border-top-left-radius: 10rpx;
+}
+.image_2:last-child {
+margin-right: 0;
+border-bottom-right-radius: 10rpx;
+border-top-right-radius: 10rpx;
+}
+/* 帖子图片大于等于三张 */
+.image_3 {
+overflow: hidden;
+flex-grow: 1;
+height: 230rpx;
+margin-right: 10rpx;
+}
+.image_3:first-child {
+border-bottom-left-radius: 10rpx;
+border-top-left-radius: 10rpx;
+}
+.image_3:last-child {
+margin-right: 0;
+border-bottom-right-radius: 10rpx;
+border-top-right-radius: 10rpx;
+}

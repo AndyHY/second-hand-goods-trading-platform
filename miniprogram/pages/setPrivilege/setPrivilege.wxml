@@ -1,0 +1,36 @@
+<view class='contain'>
+  <view class="search">
+    <image style='height:75rpx;width:75rpx' mode="aspectFill" src='../../images/search.png'></image>
+    <input style="caret-color:gray;height:100rpx;display:inline-block" placeholder="搜索昵称"></input>
+  </view>
+  <scroll-view scroll-y="true" class="content">
+    <!-- 管理员显示 -->
+    <view class='title' wx:if='{{manager.length>0}}'>管理员</view>
+    <view wx:for="{{manager}}" wx:for-index="idx" class='list'>
+      <view class='userInform'>
+        <view style='display:flex; flex-direction:row; align-items:center;'>
+          <image class="icon" src='{{item.icon}}' mode='aspectFill'></image>
+          <view>{{item.nickName}}</view>
+        </view>
+        <view style='display:flex; flex-direction:row;'>
+          <button type="warn" class='button' catchtap='cancelManager' data-index='{{idx}}'>撤销</button>
+        </view>
+      </view>
+    </view>
+    <!--请求者显示 -->
+    <view class='title' wx:if='{{asker.length>0}}'>请求者</view>
+    <button type='warn' wx:if='{{asker.length>0}}' catchtap='rejectAll'>拒绝所有请求</button>
+    <view wx:for='{{asker}}' wx:for-index='idx' class='list'>
+      <view class='userInform'>
+        <view style='display:flex; flex-direction:row; align-items:center;'>
+          <image class="icon" src='{{item.icon}}' mode='aspectFill'></image>
+          <view>{{item.nickName}}</view>
+        </view>
+        <view style='display:flex; flex-direction:row;'>
+          <button type='primary' class='button' catchtap='agreePrivilege' data-index='{{idx}}'>同意</button>
+          <button type="warn" class='button' catchtap='rejectPrivilege' data-index='{{idx}}'>拒绝</button>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

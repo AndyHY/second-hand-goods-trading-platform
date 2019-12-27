@@ -1,0 +1,21 @@
+<view class="postData">
+  <view class="postTitle">
+    <input placeholder="标题" bindinput="postTitleInput" value="{{ postTitle }}" maxlength="30"></input>
+  </view>
+  <view class="postContent">
+    <textarea placeholder="写下你的想法..." bindinput="postContentInput" value="{{ postContent }}" maxlength="-1"></textarea>
+  </view>
+  <view style="display:flex;flex-wrap:wrap;">
+    <view wx:for='{{postImage}}' style="height:250rpx;width:250rpx;margin-bottom:10rpx;position:relative" 
+        wx:key="*this"  bindtap='photographInput' data-index='{{index}}'>
+      <view class="postImage">
+        <image style='height:250rpx;width:250rpx;diaplay:inline-block;' mode='aspectFill' src='{{item}}' />
+      </view>
+      <image  wx:if='{{index!=postImage.length-1}}'class='postImageDelete' src="../../images/delete.png" 
+      style='height:50rpx;width:50rpx;' mode="aspectFit" catchtap='deleteImage' data-index='{{index}}'/>
+    </view>
+  </view>
+  <view class="postButton">
+    <button bindtap="postButton">发表</button>
+  </view>
+</view>

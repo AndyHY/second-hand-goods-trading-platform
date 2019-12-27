@@ -1,0 +1,33 @@
+.postData {
+    display: flex;
+    flex-direction: column;
+}
+
+.postTitle {
+    height: 60rpx;
+    padding: 20rpx;
+    border-bottom: 1rpx solid #e0e0e0;
+}
+
+.postContent {
+    height: 500rpx;
+    padding: 10rpx;
+}
+
+.postImage {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.postImageDelete {
+    position: absolute;
+    left:200rpx;
+    top:0rpx;
+}
+
+.postButton {
+    height: 60rpx;
+}
+
+

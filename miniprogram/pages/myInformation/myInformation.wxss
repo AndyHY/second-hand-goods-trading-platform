@@ -1,0 +1,134 @@
+page {
+    height:100%;
+    width: 100%;
+    background: #edebe8;
+}
+.myInformation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.title {
+    display: flex;
+    flex-direction: row;
+}
+.cancle {
+    display:flex;
+    flex:2;
+    height:75rpx;
+    justify-content: center;
+    align-items: center;
+    margin-left:20rpx;
+    border-radius: 10rpx;
+    background: #ededed;
+}
+.titleText {
+    flex:4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.save {
+    display:flex;
+    flex:2;
+    height:75rpx;
+    justify-content: center;
+    align-items: center;
+    margin-right:20rpx;
+    border-radius:10rpx;
+}
+.icon {
+    height:300rpx;
+    width:300rpx;
+    border-radius: 50%;
+    border:10rpx solid gray;
+}
+.mask {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    height:100%;
+    width:100%;
+    left:0rpx;
+    top:0rpx;
+    z-index: 10;
+    background: lightgray;
+}
+.previewIcon {
+    margin-top: 100rpx;
+    height:750rpx;
+    width:750rpx;
+}
+.box {
+    margin-top:25rpx;
+    display: flex;
+    background: #f5f5f5;
+    height:100rpx;
+    align-items: center;
+}
+.boxText {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width:200rpx;
+    font-size: 50rpx;
+}
+.boxInput {
+    width:400rpx;
+    border-bottom: 1rpx solid gray;
+    caret-color: gray;
+    font-size: 50rpx;
+}
+.boxSelect {
+    display: flex;
+    justify-content: center;
+    border-bottom:1rpx solid gray;
+    width:400rpx;
+    height: 75rpx;
+    font-size: 50rpx;
+}
+.boxSelectImage {
+    margin-left:50rpx;
+    height: 50rpx;
+    width:50rpx;
+}
+.temp{
+    display:none;
+    width: 100%;
+    max-height: 750rpx;
+    overflow-y: scroll;
+    line-height:100rpx;
+    background: #edebe8;
+}
+@keyframes slidown{
+    from{
+        transform:  translateY(0%);
+    }
+    to{
+        transform:  translateY(3%);
+    }
+}
+.slidown{
+    display: block;
+    animation: slidown .2s ease-in both;
+}
+ 
+@keyframes slidup{
+    from{
+        transform:  translateY(3%);
+    }
+    to{
+        transform:  translateY(0%);
+    }
+}
+.slidup{
+    display: block;
+    animation: slidup .2s ease-in both;
+    height: 0px;
+}
+.sexItem{
+    margin-top: 10rpx;
+    background: #f5f5f5;
+    padding-left: 20rpx;
+}

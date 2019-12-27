@@ -1,0 +1,53 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/post/post",
+    "pages/myCollection/myCollection",
+    "pages/myPost/myPost",
+    "pages/message/message",
+    "pages/mine/mine",
+    "pages/item/item",
+    "pages/myInformation/myInformation",
+    "pages/login/login",
+    "pages/floorInfo/floorInfo",
+    "pages/setPrivilege/setPrivilege",
+    "pages/chat/chat"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "二手交易平台",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/main.png",
+        "selectedIconPath": "images/mainHighlight.png"
+      },
+      {
+        "pagePath": "pages/post/post",
+        "text": "发帖",
+        "iconPath": "images/post.png",
+        "selectedIconPath": "images/postHighlight.png"
+      },
+      {
+        "pagePath": "pages/message/message",
+        "text": "消息",
+        "iconPath": "images/message.png",
+        "selectedIconPath": "images/messageHighlight.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "images/mine.png",
+        "selectedIconPath": "images/mineHighlight.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

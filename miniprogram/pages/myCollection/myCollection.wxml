@@ -1,0 +1,37 @@
+<view class='blank' wx:if="{{postData.length==0}}">您还没有收藏哦</view>
+<view wx:for="{{ postData }}" wx:for-item="post" wx:key="_id">
+    <view class="item" bindtap="gotoItemHandle" data-id="{{ post._id }}">
+      <!-- 楼主信息和额外信息 -->
+      <view class="userInformationAndExtraInformation">
+        <!-- 楼主信息 -->
+        <view class="userInformation">
+          <view class="headPortrait">
+            <image src="{{ post.postHeadPortrait }}" style="width:100rpx;height:100rpx;" lazy-load='true' mode='aspectFill' />
+          </view>
+        </view>
+        <!-- 头像右边的额外信息 -->
+        <view class="extraInformation">
+          <!-- 楼主昵称和置顶 -->
+          <view class="nickNameAndDelete">
+            <!-- 楼主昵称 -->
+            <view class="nickName">
+              <text>{{ post.postNickName }}</text>
+            </view>
+            <image style="width:50rpx;height:50rpx;" src='../../images/delete.png' mode='aspectFit' catchtap='deleteCollectionHandle' data-index="{{index}}"/>
+          </view>
+          <!-- 发帖时间 -->
+          <view class="time">
+            <text>{{ post.exist?post.difftime:'该贴已被删除' }}</text>
+          </view>
+        </view>
+      </view>
+      <!-- 帖子的标题 -->
+      <view class="postTitle">
+        <text>{{ post.postTitle }}</text>
+      </view>
+      <!-- 帖子的内容 -->
+      <view class="postContent">
+        <text>{{ post.postContent }}</text>
+      </view>
+    </view>
+</view>

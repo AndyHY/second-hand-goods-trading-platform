@@ -1,0 +1,16 @@
+<!--pages/mine/mine.wxml-->
+<view class='contain'>
+    <view class='userInform'>
+        <image class="icon" src="{{icon}}" mode='aspectFill'></image>
+        <view class='nickname'>{{nickName}}</view>
+    </view>
+    <view class='block' bindtap='myInformationHandle'>我的信息</view>
+    <view class='block' bindtap='myPost'>我的帖子</view>
+    <view class='block' bindtap='myCollectionHandle'>我的收藏</view>
+    <view class='block' style="justify-content: space-between;">
+        <view >夜间模式</view> 
+        <switch bindchange='nightmodel' />
+    </view>
+</view>
+
+

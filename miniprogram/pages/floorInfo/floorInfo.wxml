@@ -1,0 +1,96 @@
+<view class="item">
+  <!-- 用户信息和删除 -->
+  <view class="userInformationAndDelete">
+    <!-- 层主信息 -->
+    <view class="userInformation">
+      <view class="headPortrait">
+        <image src="{{ floorData.floorHeadPortrait }}" style="width:100rpx;height:100rpx;" mode='aspectFill' />
+      </view>
+    </view>
+    
+    <!-- 头像右边的额外信息 -->
+    <view class="extraInformation">
+      <!-- 层主昵称 -->
+      <view class="nickName">
+        <text>{{ floorData.floorNickName }}</text>
+      </view>
+      <!-- 层主序号和回帖时间 -->
+      <view class="floorIndexAndTime">
+        <!-- 层主序号 -->
+        <view class="floorIndex">
+          <text>{{ floorData.floorIndex + 1 }}楼</text>
+        </view>
+        <!-- 发帖时间 -->
+        <view class="time">
+          <text>{{ floorData.difftime }}</text>
+        </view>
+      </view>
+    </view>
+
+  </view>
+  <!-- 楼层的内容 -->
+  <view class="postContent">
+    <text>{{ floorData.floorContent }}</text>
+  </view>
+  <!-- 层主与回复者的间隔信息 -->
+  <view class="interval">
+    <view class="intervalText">
+      <text>全部回复</text>
+    </view>
+  </view>
+  <!-- 楼中楼信息 -->
+  <view class="floorItem" wx:for="{{ floorData.floorFloorContent }}" wx:key="floorFloorIndex"
+  bindtap="replyHandle" data-floorFloorIndex="{{ index }}">
+    <!-- 层主信息和删除 -->
+    <view class="userInformationAndDelete">
+      <!-- 层主信息 -->
+      <view class="userInformation">
+        <view class="headPortrait">
+          <image src="{{ item.floorFloorHeadPortrait }}" style="width:100rpx;height:100rpx;" mode='aspectFill' />
+        </view>
+      </view>
+      <!-- 头像右边的额外信息 -->
+      <view class="extraInformation">
+        <!-- 昵称和删除 -->
+        <view class="nickNameAndDelete">
+          <!-- 昵称 -->
+          <view class="nickName">
+            <text wx:if="{{ item.replyNickName }}">{{ item.floorFloorNickName }}  回复 {{ item.replyNickName }}</text>
+            <text wx:else>{{ item.floorFloorNickName }}</text>
+          </view>
+          <!-- 删除 -->
+          <view class="delete" wx:if="{{ myOpenid == item.floorFloorOpenid || myPrivilege >= 2 }}" catchtap="deleteFloorFloor" data-floorFloorIndex="{{ index }}">
+            <text>删除</text>
+          </view>
+        </view>
+        <!-- 回复时间 -->
+        <view class="time">
+          <text>{{ item.difftime }}</text>
+        </view>
+      </view>
+      
+    </view>
+    <!-- 楼层的内容 -->
+    <view class="floorContent">
+        <text>{{ item.floorFloorContent }}</text>
+    </view>
+  </view>
+  <!-- 底部提示信息 -->
+  <view class="bottom">
+    <view class="bottomText">
+      <text>暂无更多</text>
+    </view>
+  </view>
+</view>
+<!-- 回复区 -->
+<view class="reply">
+  <!-- 输入框 -->
+  <input wx:if="{{ floorFloorClickIndex == -1 }}" class="replyInput" placeholder-class="placeHolder" 
+  bindinput="floorFloorInput" placeholder="回复层主" value="{{ floorFloorContent }}"/>
+  <input wx:else class="replyInput" placeholder-class="placeHolder"
+  bindinput="floorFloorInput" placeholder="回复{{ floorData.floorFloorContent[floorFloorClickIndex].floorFloorNickName}}" value="{{ floorFloorContent }}"/>
+  <!-- 按钮 -->
+  <button class="replyButton" bindtap="floorFloorButton">
+    <text>发表</text>
+  </button>
+</view>

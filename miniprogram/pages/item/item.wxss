@@ -1,0 +1,189 @@
+/* 帖子的整体框架 */
+.item {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+/* 帖子标题 */
+.item .postTitle {
+  margin-top: 20rpx;
+  font-size: 40rpx;
+  font-weight: 600;
+}
+/* 用户信息和删除 */
+.item .userInformationAndDelete {
+  display: flex;
+  height: 100rpx;
+  margin-bottom: 20rpx;
+  margin-top: 20rpx;  
+}
+/* 用户信息 */
+.userInformation {
+  display: flex;
+}
+/* 删除 */
+.delete {
+  font-weight: 300;
+}
+/* 用户昵称 */
+.userInformation .nickName {
+
+}
+/* 用户头像 */
+.userInformation .headPortrait {
+  border-radius: 50%;
+  overflow:hidden;
+  width: 100rpx;
+  height: 100rpx;
+  margin-right: 20rpx;
+}
+/* 帖子内容 */
+.item .postContent {
+  margin-bottom: 20rpx;
+  font-size: 35rpx;
+  font-weight: 400;
+  width: 710rpx;
+}
+/* 帖子图片框架 */
+.item .postImage {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1rpx solid #D3D3D3;
+}
+/* 帖子图片 */
+.image {
+  border-radius: 10rpx;
+  overflow: hidden;
+  width: 710rpx;
+  height: 400rpx;
+  margin-bottom: 20rpx;
+}
+.image:last-child {
+
+}
+/* 楼主与层主的间隔信息 */
+.interval {
+  display: flex;
+  align-items: center;
+  height: 80rpx;
+  font-weight: 500rpx;
+  border-bottom: 1rpx solid #D3D3D3; 
+}
+/* 楼主与层主的间隔信息的文本 */
+.intervalText {
+
+}
+/* 每个楼层的框架 */
+.floorItem {
+  border-bottom: 1rpx solid #D3D3D3;
+}
+/* 头像右边的额外信息 */
+.extraInformation {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+}
+/* 层主昵称和删除 */
+.nickNameAndDelete {
+  display: flex;
+  justify-content: space-between;
+}
+/* 楼层序号和回复时间 */
+.floorIndexAndTime {
+  margin-top: 10rpx;
+  display: flex;
+  justify-content: space-between;
+}
+/* 楼层序号 */
+.floorIndex {
+  font-weight: 300;
+  font-size: 30rpx;
+}
+/* 回复时间 */
+.time {
+  font-weight: 300;
+  font-size: 30rpx;
+}
+/* 楼层的内容和全部回复 */
+.floorContentAndAllReply {
+  display: flex;
+  margin-bottom: 20rpx;
+}
+/* 楼层的内容 */
+.floorContent {
+  font-size: 35rpx;
+  font-weight: 400;
+  flex-grow: 1;
+}
+/* 全部回复 */
+.allReply {
+  font-size: 35rpx;
+  font-weight: 300;  
+}
+/* 底部提示信息 */
+.bottom {
+  display: flex;
+  height: 200rpx;
+  align-items: flex-start;
+  justify-content: center;
+}
+/* 底部提示信息文本 */
+.bottomText {
+  margin-top: 20rpx;
+  font-weight: 300;
+}
+/* 回复区 */
+.reply {
+  background-color: #E3E3E3;
+  display: flex;
+  align-items: center;
+  height: 100rpx;
+  width: 100%;
+  box-shadow: 0rpx 10rpx 50rpx 10rpx rgba(85, 85, 85, 0.10);
+  position: fixed;
+  bottom: 0;
+}
+/* 输入框 */
+.replyInput {
+  background-color: #ffffff;
+  border-radius: 50rpx;
+  overflow: hidden;
+  width: 200rpx;
+  height: 80rpx;
+  flex-grow: 1;
+  margin-left: 30rpx;
+  margin-right: 20rpx;
+  padding-left: 20rpx;
+}
+/* 输入框默认文本 */
+.placeHolder {
+  
+}
+/* 收藏按钮 */
+.myCollection {
+  display: flex;
+  align-items: center;
+  height: 80rpx;
+  margin-right: 30rpx;
+}
+/* 星星 */
+.star {
+  height: 70rpx;
+  width: 70rpx;
+}
+/* 回复按钮 */
+.replyButton {
+  background-color: #84cce9;
+  display: flex;
+  align-items: center;
+  height: 70rpx;
+  margin-right: 30rpx;
+  margin-left: 30rpx;
+  font-size: 25rpx;
+}
+/* 企鹅 */
+.chatButton {
+  height: 70rpx;
+  width: 60rpx;
+}

@@ -1,0 +1,81 @@
+<view class="index">
+  <!-- 置顶帖框架 -->
+  <view class="top">
+    <view class="topFrame">
+      <view class="topPost" wx:for="{{ topPostData }}" wx:for-item="topPost" wx:key="_id" bindtap="gotoItemHandle" data-id="{{ topPost._id }}">
+        <view class="topPostTag">
+          <text>置顶</text>
+        </view>
+        <view class="topPostTitle">
+          <text>{{ topPost.postTitle }}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 所有帖子框架 -->
+  <view wx:for="{{ postData }}" wx:for-item="post" wx:key="_id">
+    <view class="item" bindtap="gotoItemHandle" data-id="{{ post._id }}">
+      <!-- 楼主信息和额外信息 -->
+      <view class="userInformationAndExtraInformation">
+        <!-- 楼主信息 -->
+        <view class="userInformation">
+          <view class="headPortrait">
+            <image src="{{ post.postHeadPortrait }}" style="width:100rpx;height:100rpx;" mode='aspectFill' />
+          </view>
+        </view>
+        <!-- 头像右边的额外信息 -->
+        <view class="extraInformation">
+          <!-- 楼主昵称和置顶 -->
+          <view class="nickNameAndDelete">
+            <!-- 楼主昵称 -->
+            <view class="nickName">
+              <text>{{ post.postNickName }}</text>
+            </view>
+            <!-- 置顶 -->
+            <view class="delete" wx:if="{{ myPrivilege >= 2 }}" catchtap="topPost" data-id="{{ post._id }}">
+              <text>置顶</text>
+            </view>
+          </view>
+          <!-- 发帖时间 -->
+          <view class="time">
+            <text>{{ post.difftime }}</text>
+          </view>
+        </view>
+      </view>
+      <!-- 帖子的标题 -->
+      <view class="postTitle">
+        <text>{{ post.postTitle }}</text>
+      </view>
+      <!-- 帖子的内容 -->
+      <view class="postContent">
+        <text>{{ post.postContent }}</text>
+      </view>
+      <!-- 帖子的图片 -->
+      <block wx:if="{{ post.postImageCloudID != null }}">
+        <view class="postImage">
+          <!-- 只有一张图片的情况 -->
+          <block wx:if="{{ post.postImageCloudID.length == 1 }}">
+            <block wx:for="{{ post.postImageCloudID }}" wx:for-item="image" wx:for-index="j" wx:key="*this">
+              <image src="{{ image }}" class="image_1" mode='aspectFill' />
+            </block>
+          </block>
+          <!-- 只有两张图片的情况 -->
+          <block wx:elif="{{ post.postImageCloudID.length == 2 }}">
+            <block wx:for="{{ post.postImageCloudID }}" wx:for-item="image" wx:for-index="j" wx:key="*this">
+              <image src="{{ image }}" class="image_2" mode='aspectFill' />
+            </block>
+          </block>
+          <!-- 大于等于三张图片的情况 -->
+          <block wx:else>
+            <block wx:for="{{ post.postImageCloudID }}" wx:for-item="image" wx:for-index="j" wx:key="*this">
+              <!-- 每个帖子最多显示三张图片 -->
+              <block wx:if="{{ j <= 2 }}">
+                <image src="{{ image }}" class="image_3" mode='aspectFill' />
+              </block>
+            </block>
+          </block>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

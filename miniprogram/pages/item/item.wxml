@@ -1,0 +1,129 @@
+<view class="item">
+  <!-- 帖子的标题 -->
+  <view class="postTitle">
+    <text>{{ postData.postTitle }}</text>
+  </view>
+  <!-- 用户信息和删除 -->
+  <view class="userInformationAndDelete">
+    <!-- 楼主信息 -->
+    <view class="userInformation">
+      <view class="headPortrait">
+        <image src="{{ postData.postHeadPortrait }}" style="width:100rpx;height:100rpx;" mode='aspectFill' />
+      </view>
+    </view>
+    <!-- 头像右边的额外信息 -->
+    <view class="extraInformation">
+      <view class="nickNameAndDelete">
+        <!-- 楼主昵称 -->
+        <view class="nickName">
+          <text>{{ postData.postNickName }}</text>
+        </view>
+        <!-- 删除 -->
+        <view class="delete" wx:if="{{myOpenid == postData._openid || myPrivilege >= 2}}" catchtap="deletePost">
+          <text>删除</text>
+        </view>
+      </view>
+      <!-- 楼主标号和发帖时间 -->
+      <view class="floorIndexAndTime">
+        <!-- 楼主标号 -->
+        <view class="floorIndex">
+          <text>楼主</text>
+        </view>
+        <!-- 发帖时间 -->
+        <view class="time">
+          <text>{{ postData.difftime }}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 帖子的内容 -->
+  <view class="postContent">
+    <text>{{ postData.postContent }}</text>
+  </view>
+  <!-- 帖子的图片 -->
+  <view class="postImage">
+    <block wx:for="{{ postData.postImageCloudID }}" wx:for-item="image" wx:for-index="j" wx:key="*this">
+      <image catchtap="previewImage" data-imageIndex="{{ j }}" src="{{ image }}" class="image" mode='widthFix' />
+    </block>
+  </view>
+  <!-- 楼主与层主的间隔信息 -->
+  <view class="interval">
+    <view class="intervalText">
+      <text>全部回复</text>
+    </view>
+  </view>
+  <!-- 楼层信息 -->
+  <view class="floorItem" wx:for="{{ postData.floorContent }}" wx:key="floorIndex" catchtap='goToFloorFloor' data-floorIndex="{{ index }}">
+    <!-- 层主信息和删除 -->
+    <view class="userInformationAndDelete">
+      <!-- 层主信息 -->
+      <view class="userInformation">
+        <view class="headPortrait">
+          <image src="{{ item.floorHeadPortrait }}" style="width:100rpx;height:100rpx;" mode='aspectFill' />
+        </view>
+      </view>
+      <!-- 头像右边的额外信息 -->
+      <view class="extraInformation">
+        <!-- 层主昵称和删除 -->
+        <view class="nickNameAndDelete">
+          <!-- 层主昵称 -->
+          <view class="nickName">
+            <text>{{ item.floorNickName }}</text>
+          </view>
+          <!-- 删除 -->
+          <view class="delete" wx:if="{{myOpenid == item.floorOpenid || myPrivilege >= 2}}" catchtap="deleteFloor" data-floorIndex="{{ index }}">
+            <text>删除</text>
+          </view>
+        </view>
+        <!-- 楼层序号和回复时间 -->
+        <view class="floorIndexAndTime">
+          <!-- 楼层序号 -->
+          <view class="floorIndex">
+            <text>{{ item.floorIndex + 1 }}楼</text>
+          </view>
+          <!-- 回复时间 -->
+          <view class="time">
+            <text>{{ item.difftime }}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 楼层的内容和全部回复 -->
+    <view class="floorContentAndAllReply">
+      <!-- 楼层的内容 -->
+      <view class="floorContent">
+        <text>{{ item.floorContent }}</text>
+      </view>
+      <!-- 查看全部回复 -->
+      <view class="allReply">
+        <text wx:if="{{ amount[index] }}">{{amount[index]}}条回复</text>
+      </view>
+    </view>
+  </view>
+  <!-- 底部提示信息 -->
+  <view class="bottom">
+    <view class="bottomText">
+      <text>暂无更多</text>
+    </view>
+  </view>
+</view>
+<!-- 回复区 -->
+<view class="reply">
+  <!-- 输入框 -->
+  <input class="replyInput" placeholder-class="placeHolder" bindinput="floorInput" placeholder="回复楼主" value="{{ floorContent }}"></input>
+  <view class="myCollection" bindtap="myCollection">
+    <view wx:if="{{ starClick }}">
+      <image class="star" src="../../images/star-active.png" />
+    </view>
+    <view wx:else>
+      <image class="star" src="../../images/star.png" />
+    </view>
+  </view>
+  <view bindtap="chatButton">
+      <image class="chatButton" src="../../images/message.png" mode='aspectFit' />
+  </view>
+  <!-- 按钮 -->
+  <button class="replyButton" bindtap="floorButton">
+    <text>发表</text>
+  </button>
+</view>

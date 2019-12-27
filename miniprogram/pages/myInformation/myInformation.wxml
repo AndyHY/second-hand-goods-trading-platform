@@ -1,0 +1,44 @@
+<!--pages/myInformation/myInformation.wxml-->
+<view class="myInformation">
+  <view class='title'>
+    <button class='cancle' bindtap='cancle'>取消</button>
+    <view class='titleText'>我的信息</view>
+    <button class='save' bindtap='save' type="primary">保存</button>
+  </view>
+
+  <view style='display:flex;justify-content:center;margin-top:50rpx;'>
+    <image class="icon" mode='aspectFill' src='{{icon}}' bindtap='iconHandle' />
+  </view>
+
+  <view wx:if='{{previewIcon}}' class='mask' catchtap='returnIcon'>
+    <button style='margin-left:0rpx;background:lightgray' catchtap='returnIcon'>返回</button>
+    <image class='previewIcon' src='{{icon}}' mode='aspectFill' catchtap="nothingToDo"></image>
+    <button style='margin-top:50rpx;' catchtap="resetIcon">上传头像</button>
+  </view>
+
+  <view class="box">
+    <view class='boxText'>昵称</view>
+    <input class='boxInput' value="{{nickName}}" maxlength='16' bindchange='nickNameHandle'> </input>
+  </view>
+
+  <view class="box" bindtap='sexHandle'>
+    <view class='boxText'> 性别 </view>
+    <view class='boxSelect'>{{sex}}</view>
+    <image class='boxSelectImage' mode='aspectFit' src="{{selectIcon}}" />
+  </view>
+
+  <view class="temp {{selectOpen ? 'slidown' : 'slidup'}} {{selectShow ? 'disappear':''}}">
+    <view wx:for="{{sexChoice}}" bindtap='sexChoiceHandle'>
+      <view class='sexItem' data-index='{{index}}'> {{item}} </view>
+    </view>
+  </view>
+  
+  <view class="box">
+    <view class='boxText'> 权限 </view>
+    <view class='boxSelect' style='width:200rpx;'>{{privilege}}</view>
+    <button type="{{privilege=='开发者'?'default':privilege=='管理员'?'warn':'primary'}}" catchtap="askPrivilege">
+      {{privilege=='开发者'?'管理申请':privilege=='管理员'?'放弃管理员':'申请管理员'}}
+    </button>
+  </view>
+
+</view>
